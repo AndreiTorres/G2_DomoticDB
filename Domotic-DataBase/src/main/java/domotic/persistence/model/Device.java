@@ -3,7 +3,7 @@ package domotic.persistence.model;
 import javax.persistence.*;
 
 @Entity
-public class Device {
+public class  Device {
 
     @Id
     @GeneratedValue
