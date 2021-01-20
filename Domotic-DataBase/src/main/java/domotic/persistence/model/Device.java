@@ -14,7 +14,28 @@ public class Device {
     @ManyToOne(cascade = CascadeType.PERSIST)
     private Room room;
 
+    private boolean isIndispensable;
+
+    @OneToOne(cascade = CascadeType.PERSIST)
+    private DeviceSpecs deviceSpecs;
+
     public Device() {}
+
+    public boolean isIndispensable() {
+        return isIndispensable;
+    }
+
+    public void setIndispensable(boolean indispensable) {
+        isIndispensable = indispensable;
+    }
+
+    public DeviceSpecs getDeviceSpecs() {
+        return deviceSpecs;
+    }
+
+    public void setDeviceSpecs(DeviceSpecs deviceSpecs) {
+        this.deviceSpecs = deviceSpecs;
+    }
 
     public Device(String deviceName, Room room) {
         this.deviceName = deviceName;
@@ -47,6 +68,7 @@ public class Device {
         return "Device{" +
                 "deviceId=" + deviceId +
                 ", deviceName='" + deviceName + '\'' +
+                ", isIndispensable=" + isIndispensable +
                 '}';
     }
 }
