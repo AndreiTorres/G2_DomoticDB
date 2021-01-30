@@ -21,6 +21,12 @@ public class Device {
 
     public Device() {}
 
+    public Device(String deviceName, Room room) {
+        this.deviceName = deviceName;
+        room.addDevice(this);
+        this.room = room;
+    }
+
     public boolean isIndispensable() {
         return isIndispensable;
     }
@@ -37,11 +43,6 @@ public class Device {
         this.deviceSpecs = deviceSpecs;
     }
 
-    public Device(String deviceName, Room room) {
-        this.deviceName = deviceName;
-        room.addDevice(this);
-        this.room = room;
-    }
 
     public long getDeviceId() {
         return deviceId;
