@@ -18,10 +18,23 @@ public class Room {
     @OneToMany(mappedBy = "room")
     private final Set<Device> devices = new HashSet<>();
 
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    private Area area;
+
     public Room() {}
 
     public Room(String roomName) {
         this.roomName = roomName;
+        area.addRoom(this);
+        this.area = area;
+    }
+
+    public Area getArea() {
+        return area;
+    }
+
+    public void setArea(Area area) {
+        this.area = area;
     }
 
     public String getRoomName() {
